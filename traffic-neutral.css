@@ -1,0 +1,6 @@
+.safety-check { border-color: #d8d4cc; background: #f2f0eb; }
+.safety-head > span { background: #4e5753; }
+.safety-head h2 { color: var(--ink); }
+.safety-lines article { background: #fffdfa; }
+.safety-lines a, .alternative-link { color: #313936; border-color: #7c8781; }
+.live-traffic{margin:0 0 20px;padding:15px;border:2px solid #d72e25;border-radius:10px;background:#fff0ed;color:#86211c}.live-traffic strong{display:block}.live-traffic p{margin:6px 0 0;font-size:13px;line-height:1.45}

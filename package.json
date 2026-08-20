@@ -1,0 +1,10 @@
+{
+  "private": true,
+  "scripts": {
+    "deploy": "netlify deploy --prod --dir=. --functions=netlify/functions",
+    "dev": "python3 -m http.server 8080"
+  },
+  "name": "paris-metro",
+  "version": "1.0.0",
+  "description": "Paris Metro / RER route guide"
+}

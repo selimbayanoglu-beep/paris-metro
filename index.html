@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Paris Metro — Bonjour RATP rehberi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="enhancements.css" />
+    <link rel="stylesheet" href="traffic-neutral.css" />
+  </head>
+  <body>
+    <main>
+      <nav><a class="brand" href="./">PARIS <span>METRO</span></a><a href="https://www.bonjour-ratp.fr/en/plans/" target="_blank" rel="noreferrer">Resmî RATP haritaları ↗</a></nav>
+      <section class="hero">
+        <p class="eyebrow">BONJOUR RATP · METRO REHBERİ</p>
+        <h1>Paris’te hangi<br /><em>metroya</em> bineceksin?</h1>
+        <p class="intro">Sokak, adres veya istasyon adını yaz. Önce adresi bulalım; sonra koordinatına en yakın Metro veya RER istasyonunu hesaplayalım.</p>
+      </section>
+
+      <form id="route-form" class="search-card">
+        <label><span class="pin start"></span><span>Nereden?</span><input id="from" autocomplete="off" placeholder="Örn. Eiffel Tower, Louvre, Châtelet" /></label>
+        <div class="connector" aria-hidden="true"></div>
+        <label><span class="pin end"></span><span>Nereye?</span><input id="to" autocomplete="off" placeholder="Örn. Montmartre, Gare du Nord" /></label>
+        <button type="submit">Rotayı bul <span>→</span></button>
+      </form>
+      <p class="hint">İpucu: “Rue de la Plaine” veya kısaca “r d la” yazabilirsin; ayrıca “Louvre”, “Notre-Dame”, “Orly Airport”, “Gare du Nord” ve istasyon adları da aranır.</p>
+      <section id="error" class="error" hidden></section>
+
+      <section id="loading" class="loading" hidden>En yakın istasyonlar bulunuyor…</section>
+      <section id="results" hidden>
+        <div class="station-pair">
+          <article><p>BAŞLANGIÇTA EN YAKIN METRO / RER</p><h2 id="from-station"></h2><small id="from-walk"></small></article>
+          <div class="arrow">→</div>
+          <article><p>VARIŞTA EN YAKIN METRO / RER</p><h2 id="to-station"></h2><small id="to-walk"></small></article>
+        </div>
+        <section id="route-options" class="route-options" hidden>
+          <p class="eyebrow">ROTA SEÇENEKLERİ</p>
+          <div id="route-choice-buttons" class="route-choice-buttons"></div>
+        </section>
+        <section class="route-card">
+          <header><div><p class="eyebrow">METRO ROTASI</p><h2 id="route-title"></h2></div><div class="duration"><strong id="duration"></strong><span>tahmini</span></div></header>
+          <div id="legs" class="legs"></div>
+          <footer><span id="transfer-count"></span><a href="https://www.bonjour-ratp.fr/en/plans/" target="_blank" rel="noreferrer">Resmî hat haritalarını aç ↗</a></footer>
+        </section>
+        <section><p class="eyebrow">YOLCULUKTAKİ HAT BÖLÜMLERİ</p><div id="line-visuals" class="line-visuals"></div></section>
+        <section id="safety-check" class="safety-check" aria-live="polite"></section>
+      </section>
+      <footer class="page-footer">Hat, istasyon ve harita referansları: <a href="https://www.bonjour-ratp.fr/en/plans/" target="_blank" rel="noreferrer">Bonjour RATP</a>. Serbest yazılmış konumlar, en yakın istasyonu hesaplamak için coğrafi koordinata çevrilir.</footer>
+    </main>
+    <script src="official-network.js"></script>
+    <script src="app.js?v=49"></script>
+  </body>
+</html>
